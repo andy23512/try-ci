@@ -17,6 +17,7 @@ install:
   - export DISPLAY=:99.0
   - nvm install 10
   - yarn
+  - yarn add chromedriver
 before_script:
   - "sh -e /etc/init.d/xvfb start" # the starting the virtual X frame buffer: Xvfb process
   - sleep 3 #wait a while before xvfb to start
