@@ -15,15 +15,15 @@ before_install: # if "install" is overridden
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq yarn
 install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
   - nvm install 10
   - yarn
 before_script:
-  - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start" # the starting the virtual X frame buffer: Xvfb process
   - sleep 3 #wait a while before xvfb to start
 script:
   - nvm use 10
-  - npm test
   - yarn test:unit
   - yarn test:e2e
 after_script:
